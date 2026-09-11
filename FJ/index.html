@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Mirror</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="mirror-frame" id="mirrorFrame">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="overlayCanvas"></canvas>
+    <div class="overlay"></div>
+    <div class="personality-name" id="personalityName"></div>
+    <div class="speech-bubble" id="speechBubble"></div>
+  </div>
+
+  <button id="triggerBtn">🔮 Look Into The Mirror</button>
+
+<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+<script src="script.js"></script>
+  
+</body>
+</html>
