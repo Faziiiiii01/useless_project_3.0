@@ -1,0 +1,104 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  font-family: 'Segoe UI', sans-serif;
+  gap: 20px;
+}
+
+.mirror-frame {
+  position: relative;
+  width: 480px;
+  height: 640px;
+  border-radius: 240px 240px 20px 20px;
+  border: 14px solid #333;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  transition: box-shadow 0.5s, border-color 0.5s;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror effect */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 0.5s, background 0.5s;
+}
+
+.personality-name {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px black;
+  letter-spacing: 2px;
+}
+
+.speech-bubble {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  text-align: center;
+  min-height: 20px;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: #6c2bd9;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+button:hover { transform: scale(1.05); }
+
+/* --- Personality themes --- */
+.mirror-frame.angry { border-color: #ff2b2b; box-shadow: 0 0 60px #ff2b2b88; }
+.mirror-frame.angry .overlay { opacity: 0.35; background: #ff0000; }
+
+.mirror-frame.motivational { border-color: #ffb100; box-shadow: 0 0 60px #ffb10088; }
+.mirror-frame.motivational .overlay { opacity: 0.25; background: #ffd700; }
+
+.mirror-frame.roast { border-color: #ff2bd6; box-shadow: 0 0 60px #ff2bd688; }
+.mirror-frame.roast .overlay { opacity: 0.3; background: #b300ff; }
+
+.mirror-frame.villain { border-color: #00ff66; box-shadow: 0 0 60px #00ff6666; }
+.mirror-frame.villain .overlay { opacity: 0.4; background: #001a00; }
+
+.mirror-frame.compliment { border-color: #ff9ecb; box-shadow: 0 0 60px #ff9ecb88; }
+.mirror-frame.compliment .overlay { opacity: 0.2; background: #ffc0e0; }
+
+#overlayCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
